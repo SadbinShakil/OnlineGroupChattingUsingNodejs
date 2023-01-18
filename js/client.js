@@ -3,6 +3,7 @@ const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageINP');
 const messageContainer = document.querySelector(".container");
 
+
 var audio = new Audio('beep.mp3');
 
 
@@ -32,7 +33,7 @@ form.addEventListener('submit', (e)=>{
 
 const Name = prompt("Enter your name to join: ");
 socket.emit('new-user-joined', Name);
-
+document.getElementById("p1").innerHTML = `${Name}`;
 
 
 //user-joined event listening
@@ -47,3 +48,5 @@ socket.on('receive', data=>{
 socket.on('left', name=>{
     append(`${name} left the chat`, 'left')
 })
+
+
